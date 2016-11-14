@@ -1,20 +1,36 @@
-import React                from 'react';
-import ReactDOM             from 'react-dom';
-import injectTpEventPlugin  from 'react-tap-event-plugin';
-import { Routes }           from './routes/Route';
+import React from  'react';
+import {render } from 'react-dom';
 
-import 'babel-polyfill';
-import 'animate.css';
-import 'jquery';
-import 'whatwg-fetch';
+// import CSS
+
 import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import './style/index.style.scss';
 
-const ELEMENT_TO_BOOTSTRAP  = 'root';
-const BootstrapedElement    = document.getElementById(ELEMENT_TO_BOOTSTRAP);
+// import components
+import App from './components/App';
 
-injectTpEventPlugin();
+import LandingPage from './components/LandingPage';
+import PhotoGrid from './components/PhotoGrid';
 
-ReactDOM.render(<Routes />, BootstrapedElement);
+// import react router deps
+import { Router, Route, IndexRoute } from 'react-router';
+import { Provider } from 'react-redux';
+import store, { history } from './store';
+
+const router = (
+	<Provider store={store}>
+		<Router history={history}>
+			<Route path="/" component={App}>
+				<IndexRoute component={LandingPage} />
+				<Route path="/spot/:location" component={PhotoGrid} />
+			</Route>
+		</Router>
+	</Provider>
+
+);
+
+render(router, document.getElementById('root'));
+
+
