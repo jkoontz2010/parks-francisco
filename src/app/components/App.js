@@ -6,7 +6,8 @@ import Main from './Main';
 
 function mapStateToProps(state) {
 	return {
-		spots: state.spots
+		area: state.area,
+		parks: state.parks
 	}
 }
 

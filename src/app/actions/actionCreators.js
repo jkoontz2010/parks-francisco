@@ -1,44 +1,21 @@
-// search spot by location
-export function searchSpot(location) {
+// search parks by location
+export function searchParks(area, lat, lng) {
 	return {
-		type: 'SEARCH_SPOT',
-		location
+		type: 'SEARCH_PARKS',
+		payload: {
+			area,
+			lat,
+			lng
+		}	
 	}
 }
 
-// action for ajax spot request
-export function requestSpot(location) {
-	return {
-		type: 'FETCH_SPOT',
-		location
-	}
-}
-
-// action for ajax spot request success (200)
-export function receiveSpot(location, json) {
-	return {
-		type: 'FETCH_SPOT_SUCCESS',
-		location,
-		spots: json.data
-	}
-}
-
-// action for ajax spot request success (200)
-export function failedRequestSpot(location, error) {
-	return {
-		type: 'FETCH_SPOT_FAIL',
-		location,
-		error
-	}
-}
-
-// async thunk fetch for spot request
-export function fetchSpot(location) {
-	return dispatch => {
-		dispatch(requestSpot(location));
-		return fetch(`https://future.api.com/search?location=${location}`)
+// async thunk fetch for parks request
+export function fetchParks(area, lat, lng) {
+	return { 
+		type: 'FETCH_PARKS',
+		area,
+		payload: fetch(`https://pure-peak-99410.herokuapp.com/parks?location=${area}&lat=${lat}&long=${lng}`)
 			.then(response => response.json())
-			.then(json => dispatch(receiveSpot(location, json)))
-			.catch(error => dispatch(failedRequestSpot(location, error)));
 	}
 }

@@ -12,7 +12,7 @@ import './style/index.style.scss';
 import App from './components/App';
 
 import LandingPage from './components/LandingPage';
-import PhotoGrid from './components/PhotoGrid';
+import Parks from './components/Parks';
 
 // import react router deps
 import { Router, Route, IndexRoute } from 'react-router';
@@ -24,7 +24,7 @@ const router = (
 		<Router history={history}>
 			<Route path="/" component={App}>
 				<IndexRoute component={LandingPage} />
-				<Route path="/spot/:location" component={PhotoGrid} />
+				<Route path="/parks/" component={Parks} />
 			</Route>
 		</Router>
 	</Provider>
