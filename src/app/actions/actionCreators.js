@@ -3,7 +3,7 @@ export function fetchParks(area, lat, lng) {
 	return { 
 		type: 'FETCH_PARKS',
 		area,
-		payload: fetch(`https://pure-peak-99410.herokuapp.com/parks?lat=${lat}&lng=${lng}`)
+		payload: fetch(`https://pure-peak-99410.herokuapp.com/api/v1/parks?lat=${lat}&lng=${lng}`)
 			.then(response => response.json())
 	}
 }
