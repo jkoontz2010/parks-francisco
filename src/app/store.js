@@ -13,32 +13,6 @@ const defaultState = {
 	parks: []
 };
 
-/* intended store structure:
-{
-	selectedLocation: {
-		label: "San Francisco, CA",
-		location: {
-			lat: 12.23323,
-			long: -73.32132
-		}
-	},
-	parks: [
-		
-		[park[0].id]: {
-			name: park.name,
-			location: {
-				lat:
-				long:
-			}
-		},
-		[park[1].id] {
-			...
-		}
-	]
-}
-
-*/
-
 const store = createStore(rootReducer, defaultState, applyMiddleware(thunk, promiseMiddleware));
 
 

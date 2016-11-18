@@ -8,11 +8,6 @@ function parks(state={}, action) {
 				hasFetched: false
 			}
 		case 'FETCH_PARKS_SUCCESS':
-			console.log({
-				...state,
-				hasFetched: true,
-				parks: action.payload
-			});
 		    return {
 				...state,
 				hasFetched: true,

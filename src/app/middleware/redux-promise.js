@@ -2,8 +2,6 @@ const promiseMiddleware = store => next => action => {
 	if(action.payload && action.payload.then) {
 		action.payload.then(
 			data => {
-				console.log("success");
-				console.log(data);
 				store.dispatch({
 					type: action.type+"_SUCCESS",
 					payload: data

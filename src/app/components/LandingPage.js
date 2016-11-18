@@ -1,6 +1,6 @@
 import React from 'react';
 import Geosuggest from 'react-geosuggest';
-import { Well, Button } from 'React-Bootstrap';
+import { Well } from 'React-Bootstrap';
 
 class LandingPage extends React.Component {
 	constructor() {
@@ -27,12 +27,9 @@ class LandingPage extends React.Component {
 					<div className="col-sm-offset-3 col-sm-6">
 						<Well>
 							<div className="row">
-								<div className="col-sm-10">
+								<div className="col-sm-12">
 									<Geosuggest placeholder="Where would you like to walk from?"
 												onSuggestSelect={this.goToLocation} />
-								</div>
-								<div className="col-sm-2">
-									<Button className="btn-search">Search</Button>
 								</div>
 							</div>
 							

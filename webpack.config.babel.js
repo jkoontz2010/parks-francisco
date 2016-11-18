@@ -29,7 +29,7 @@ const config = {
       test: /\.json$/,
       loader: 'json'
     }, {
-      test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,
+      test: /\.(eot|woff|woff2|ttf|png|jpe?g|gif)(\?\S*)?$/,
       loader: 'url?limit=100000@name=[name][ext]'
     }]
   },
